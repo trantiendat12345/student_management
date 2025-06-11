@@ -1,0 +1,15 @@
+CREATE TABLE grade (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    student_id BIGINT UNSIGNED DEFAULT NULL,
+    subject_id BIGINT UNSIGNED DEFAULT NULL,
+    midterm_score FLOAT,
+    final_score FLOAT,
+    average_score FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_grade_student FOREIGN KEY (student_id) REFERENCES student(id)
+    ON DELETE SET NULL,
+    CONSTRAINT fk_grade_subject FOREIGN KEY (subject_id) REFERENCES subject(id)
+    ON DELETE SET NULL
+);
