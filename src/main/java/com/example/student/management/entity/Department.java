@@ -29,7 +29,7 @@ public class Department {
     @Column(name = "department_name")
     private String departmentName;
 
-    @Column(name = "create_at", updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")

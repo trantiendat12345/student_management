@@ -1,7 +1,11 @@
 package com.example.student.management.seeder;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import com.example.student.management.entity.Grade;
+import com.example.student.management.repository.GradeRepository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -12,11 +16,24 @@ public class GradeSeeder implements CommandLineRunner {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Autowired
+    private GradeRepository gradeRepository;
+
     @Override
     public void run(String... args) throws Exception {
         
         if (isTableEmpty()) {
+
             System.out.println("Grade!");
+
+            Grade datMath = new Grade();
+            datMath.setStudentId(1L);
+            datMath.setSubjectId(1L);
+            datMath.setMidtermScore(8.5f);
+            datMath.setFinalScore(9.0f);
+            datMath.setAverageScore(9.5f);
+            gradeRepository.save(datMath);
+            
         }
         
     }

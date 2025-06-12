@@ -45,6 +45,9 @@ public class Teacher {
     @Column(name = "national_id")
     private String nationalId;
 
+    @Column(name = "phone")
+    private String phone;
+
     @Column(name = "address")
     private String address;
 

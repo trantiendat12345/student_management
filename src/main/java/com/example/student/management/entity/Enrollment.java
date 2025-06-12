@@ -32,6 +32,9 @@ public class Enrollment {
     @Column(name = "subject_id")
     private Long subjectId;
 
+    @Column(name = "teacher_id")
+    private Long teacherId;
+
     @Column(name = "semester")
     private String semester;
 
